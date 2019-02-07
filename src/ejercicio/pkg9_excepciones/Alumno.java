@@ -6,6 +6,7 @@
 package ejercicio.pkg9_excepciones;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -22,7 +23,7 @@ public class Alumno {
     public Alumno() {
         num_asignaturas=5;
         nombre="";
-        array= new ArrayList<>(5);  
+        array= new ArrayList<>();  
     }
 
     /**
@@ -31,6 +32,8 @@ public class Alumno {
      */
     public Alumno(String nombre) {
         this.nombre = nombre;
+        num_asignaturas=5;
+        array= new ArrayList<>();
     }
 
     /**
@@ -45,7 +48,18 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    
+    public void pedirNotas() throws RangoException
+    {
+        int nota=1;
+        for (int i = 0; i < this.num_asignaturas; i++) {
+            Scanner teclado = new Scanner(System.in);
+            
+            System.out.println("Introduce la nota " +nota);
+            double pedirnota = teclado.nextDouble();
+            array.add(pedirnota);
+            nota++;
+        }
+    }
     
     
 }
