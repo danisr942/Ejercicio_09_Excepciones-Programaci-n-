@@ -9,7 +9,7 @@ package ejercicio.pkg9_excepciones;
  * Esta excepcion muestra un mensaje
  * @author Dani
  */
-public class MisteriosaException extends Exception {
+public class MisteriosaException extends ArrayIndexOutOfBoundsException {
 
     public MisteriosaException(String mensaje) {
         super(mensaje);

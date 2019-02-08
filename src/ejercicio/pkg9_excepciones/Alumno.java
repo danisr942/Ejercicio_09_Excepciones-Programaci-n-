@@ -100,7 +100,7 @@ public class Alumno {
         }
         else
         {
-            throw new MisteriosaException ("Posición no váñida");
+          
         }
         
         System.out.println(notas.get(posicion));

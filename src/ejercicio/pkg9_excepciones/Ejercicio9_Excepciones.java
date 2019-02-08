@@ -28,7 +28,7 @@ public class Ejercicio9_Excepciones {
             
         } catch (RangoException error) {
             System.err.println("Error. Nota no válida");
-        } catch (MisteriosaException error) {
+        } catch (IndexOutOfBoundsException error) {
             System.out.println("Posición no válida");
         }
         alumno.imprimirCalificaciones();
