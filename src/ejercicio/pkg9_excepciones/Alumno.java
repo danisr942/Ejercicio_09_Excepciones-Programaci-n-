@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Alumno {
     static int num_asignaturas;
     private String nombre;
-    ArrayList<Double> array = new ArrayList<>();
+    ArrayList<Double> notas = new ArrayList<>();
 
     /**
      * Este contructor por defecto solo pone los valores por defecto
@@ -23,7 +23,7 @@ public class Alumno {
     public Alumno() {
         num_asignaturas=5;
         nombre="";
-        array= new ArrayList<>();  
+        notas= new ArrayList<>(5);  
     }
 
     /**
@@ -33,7 +33,7 @@ public class Alumno {
     public Alumno(String nombre) {
         this.nombre = nombre;
         num_asignaturas=5;
-        array= new ArrayList<>();
+        notas= new ArrayList<>();
     }
 
     /**
@@ -56,7 +56,7 @@ public class Alumno {
             
             System.out.println("Introduce la nota " +nota);
             double pedirnota = teclado.nextDouble();
-            array.add(pedirnota);
+            notas.add(pedirnota);
             nota++;
         }
     }
