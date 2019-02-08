@@ -17,16 +17,21 @@ public class Ejercicio9_Excepciones {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MisteriosaException {
 
         // DANIEL SANTANA RUIZ
-        Alumno alumno = new Alumno();
+        Alumno alumno = new Alumno("Dani");
         try {
 
             alumno.pedirNotas();
+            alumno.modificarNota(5, 4);
+            
         } catch (RangoException error) {
             System.err.println("Error. Nota no válida");
+        } catch (MisteriosaException error) {
+            System.out.println("Posición no válida");
         }
+        alumno.imprimirCalificaciones();
     }
 
 }

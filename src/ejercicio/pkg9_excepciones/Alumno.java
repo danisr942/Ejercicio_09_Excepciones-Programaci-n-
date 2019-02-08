@@ -14,9 +14,9 @@ import java.util.Scanner;
  */
 public class Alumno {
 
-    static int num_asignaturas;
+    public static int num_asignaturas;
     private String nombre;
-    ArrayList<Double> notas = new ArrayList<>();
+    private ArrayList<Double> notas = new ArrayList<>();
 
     /**
      * Este contructor por defecto solo pone los valores por defecto
@@ -56,7 +56,7 @@ public class Alumno {
      */
     public void pedirNotas() throws RangoException {
         int nota = 1;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i <num_asignaturas ; i++) {
             Scanner teclado = new Scanner(System.in);
 
             System.out.println("Introduce la nota " + nota);
@@ -71,8 +71,46 @@ public class Alumno {
         }
     }
 
+    /**
+     * 
+     * @param posicion se le pasa la posición de la nota
+     * @param nnota se le pasa la nota del alumno
+     * @throws RangoException lanza la excepcion si la nota no es válida
+     * @throws MisteriosaException lanza la excepcion si la posicion es incorrecta
+     */
     public void modificarNota(int posicion, double nnota) throws RangoException, MisteriosaException {
         
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Introduce la posicion");
+        posicion = teclado.nextInt();
+        
+        if(posicion>=0 && posicion<=5)
+        {
+             if (nnota >= 0 && nnota <= 10) {
+                 notas.remove(posicion);
+                 if(nnota==0)
+                 {
+                     notas.add(posicion,nnota);
+                 }
+                 notas.add(posicion-1,nnota);
+                 
+            } else {
+                throw new RangoException("Error. Nota no válida");
+            }
+        }
+        else
+        {
+            throw new MisteriosaException ("Posición no váñida");
+        }
+        
+        System.out.println(notas.get(posicion));
     }
-
+    /**
+     * Muestra por pantalla el nombre del alumno y muestra sus notas
+     */
+    public void imprimirCalificaciones()
+    {
+        System.out.println("El nombre del alumno es: " + this.getNombre());
+        System.out.println("Las notas son: " + this.notas);
+    }
 }
